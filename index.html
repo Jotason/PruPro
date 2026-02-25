@@ -3,48 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio</title>
+    <title>Portafolio | Jeison Ortiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* Variables de color para mantener consistencia */
+        :root {
+            --primary-color: #2563eb; /* Azul vibrante */
+            --dark-color: #1e293b; /* Azul oscuro/Gris */
+            --bg-color: #f8fafc; /* Fondo claro */
+            --text-color: #334155;
+            --card-bg: #ffffff;
+        }
+
+        /* Estilos generales */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--bg-color);
         }
+
+        h1, h2, h3 {
+            color: var(--dark-color);
+        }
+
+        /* Cabecera y Navegación */
         header {
-            background-color: #333;
+            background-color: var(--dark-color);
             color: #fff;
-            padding: 1rem;
+            padding: 1.5rem 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        nav a {
+
+        header h1 {
+            margin: 0 0 1rem 0;
             color: #fff;
+            font-weight: 600;
+        }
+
+        nav a {
+            color: #cbd5e1;
             margin: 0 1rem;
             text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
         }
+
+        nav a:hover {
+            color: #fff;
+            text-decoration: underline;
+            text-decoration-color: var(--primary-color);
+            text-decoration-thickness: 3px;
+            text-underline-offset: 5px;
+        }
+
+        /* Secciones */
         section {
-            padding: 2rem;
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Sección Sobre Mí */
+        #about p {
+            text-align: center;
+            font-size: 1.1rem;
             max-width: 800px;
             margin: 0 auto;
         }
-        .project {
-            border: 1px solid #ddd;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 5px;
+
+        /* Cuadrícula de Proyectos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
-        footer {
-            background-color: #333;
-            color: #fff;
+
+        .project {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .project p {
+            flex-grow: 1; /* Empuja el botón hacia abajo */
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
             text-align: center;
-            padding: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: #1d4ed8;
+            color: white;
+        }
+
+        /* Sección Contacto */
+        #contact {
+            text-align: center;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 3rem 2rem;
+            margin-bottom: 4rem;
+        }
+
+        #contact a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: var(--dark-color);
+            color: #94a3b8;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Mi Portafolio</h1>
+        <h1>Jeison Ortiz</h1>
         <nav>
             <a href="#about">Sobre mí</a>
             <a href="#projects">Proyectos</a>
@@ -54,46 +186,48 @@
     
     <section id="about">
         <h2>Sobre mí</h2>
-        <p>Hola, soy Jeison, un desarrollador de videojuegos y aplicaciones web apasionado por crear soluciones innovadoras. Tengo experiencia en Unity y blender para programación y modelado, junto con lenguajes de programación como python, typescript, PHP y mySQL usando a su vez frameWorks como laravel, angular o SQLServer para base de datos, . Me encanta trabajar en proyectos desafiantes y aprender nuevas tecnologías.</p>
+        <p>Hola, soy Jeison, un desarrollador de videojuegos y aplicaciones web apasionado por crear soluciones innovadoras. Tengo experiencia en <strong>Unity y Blender</strong> para programación y modelado, junto con lenguajes como <strong>Python, TypeScript, PHP y MySQL</strong>. Utilizo frameworks como Laravel, Angular y herramientas de base de datos como SQL Server. Me encanta trabajar en proyectos desafiantes y aprender nuevas tecnologías constantemente.</p>
     </section>
     
     <section id="projects">
         <h2>Proyectos</h2>
-        <div class="project">
-            <h3>Proyecto 1: Sitio Web Personal</h3>
-            <p>Un sitio web responsivo creado con HTML, CSS y JavaScript. Incluye secciones de portafolio, blog y contacto.
-                (está en desarrollo )
-            </p>
-        </div>
-        <div class="project">
-            <h3>Proyecto 2: Juego 3D Complejo </h3>
-            <p>Un juego 3D desarrollado con Unity, con modelos 3D personalizados y sistemas de física avanzados, se puede jugar en navegador</p>
-            <p>Link :</p> <a href="https://bitcriollo.itch.io/housement" target="_blank">Ver juego 3D</a>
-        </div>
-        <div class="project">
-            <h3>Proyecto 3: Juego 2D Simple</h3>
-            <p>Un juego 2D desarrollado con Unity, con animación 2D original y mecanicas tipo mario bros, se puede jugar en navegador</p>
-            <p>Link :</p> <a href="https://programajson.itch.io/tzel" target="_blank">Ver juego 2D</a>
+        <div class="projects-grid">
+            <div class="project">
+                <h3>Sitio Web Personal</h3>
+                <p>Un sitio web responsivo creado con HTML, CSS y JavaScript. Incluye secciones de portafolio, blog y contacto. <em>(En desarrollo)</em></p>
+            </div>
             
-        </div>
-        <div class="project">
-            <h3>Proyecto 3D plataformero: Juego 3D tipo 2.5</h3>
-            <p>Un juego 3D desarrollado con Unity, sin ejecutar fisicas de profundidad, siendo así un plataformero con modelados 3D.</p>
-            <p>Link :</p> <a href="https://programajson.itch.io/gardo" target="_blank">Ver juego 2.5</a>
+            <div class="project">
+                <h3>Housement - Juego 3D</h3>
+                <p>Un juego 3D desarrollado con Unity, con modelos personalizados y sistemas de física avanzados. Totalmente jugable desde el navegador.</p>
+                <a href="https://bitcriollo.itch.io/housement" target="_blank" class="project-link">Ver juego 3D</a>
+            </div>
+            
+            <div class="project">
+                <h3>Tzel - Juego 2D</h3>
+                <p>Un juego 2D desarrollado con Unity, con animación original y mecánicas clásicas tipo Mario Bros. Jugable en navegador.</p>
+                <a href="https://programajson.itch.io/tzel" target="_blank" class="project-link">Ver juego 2D</a>
+            </div>
+            
+            <div class="project">
+                <h3>Gardo - Plataformero 2.5D</h3>
+                <p>Un juego desarrollado con Unity que combina mecánicas de plataformero 2D con atractivos modelados en 3D (estilo 2.5D).</p>
+                <a href="https://programajson.itch.io/gardo" target="_blank" class="project-link">Ver juego 2.5D</a>
+            </div>
         </div>
     </section>
     
     <section id="contact">
         <h2>Contacto</h2>
-        <p>Puedes contactarme en: <a href="jeisondavidortizyate@gmail.com">jeisondavidortizyate@gmail.com</a></p>
-        <p>Teléfono: 3125258985 </p>
-        <p>Puedes ver mi perfil de linkedin : <a href="https://www.linkedin.com/in/jeison-ortiz-yate-62a226233" target="_blank">ir a LinkedIn</a></p>
-        
-        <p>O visitar mi perfil en github : <a href="https://github.com/Jotason" target="_blank">GitHub</a></p>
+        <p>¿Tienes un proyecto en mente o quieres colaborar? ¡Hablemos!</p>
+        <p>📧 Correo: <a href="mailto:jeisondavidortizyate@gmail.com">jeisondavidortizyate@gmail.com</a></p>
+        <p>📱 Teléfono: 312 525 8985</p>
+        <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/jeison-ortiz-yate-62a226233" target="_blank">Visitar mi perfil</a></p>
+        <p>💻 GitHub: <a href="https://github.com/Jotason" target="_blank">Explorar mis repositorios</a></p>
     </section>
     
     <footer>
-        <p>&copy; 2026 Mi Portafolio. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Jeison Ortiz. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
